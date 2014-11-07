@@ -1,0 +1,7 @@
+task main()  {
+    	while(1)
+	{
+		TextOut(5, LCD_LINE2 ,"Error");
+	}
+}
+
