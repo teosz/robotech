@@ -1,3 +1,0 @@
-from wx import MEDIUM_GREY_PEN
-
-Medium_Grey_Pen=MEDIUM_GREY_PEN

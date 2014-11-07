@@ -1,5 +1,0 @@
-def main():
-
-    a='hello'
-    
-    
