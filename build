@@ -1,3 +1,4 @@
+sudo apt-get install g++ libusb-dev
 cd .t2n/
 make clean
 make
