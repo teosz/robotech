@@ -1,0 +1,2 @@
+required = (2, 8, 0, 0) # minimum wxPython version
+required_str = ".".join(map(str, required))
