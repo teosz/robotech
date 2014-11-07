@@ -1,0 +1,6 @@
+# Lego NXT
+# New syntax, lsb_release -a
+# Debian GNU/Linux 6.0.4 (squeeze)
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0694", ATTR{idProduct}=="0002", MODE:="0666"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="03eb", ATTR{idProduct}=="6124", MODE:="0666"
+
