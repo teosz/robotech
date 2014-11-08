@@ -2,6 +2,10 @@
 #include "lib/debug.h"
 
 #define FILE_LINES 10
+int c = -1;
+int b = -1;
+int t = 33;
+
 void showStreet(int i)
 {
   for(int k=1;k<=12;k++)
@@ -10,10 +14,28 @@ void showStreet(int i)
     int  j  = (p-1) * 25 + 5;
     int  k  = (k-1) * 25 + 4;
     RectOut(k,j,25,1);
-
     }
-    CircleOut(10, 33, 5, DRAW_OPT_FILL_SHAPE);
 
+}
+void showObs()
+{
+  if(b == -1)
+  {
+   b = Random() % 2;
+   for(int q=1;q<=100;q++)
+    TextOut(0, LCD_LINE1,"am resetat  !!! !!!");
+   }
+  if(b == 1)
+    t = 8;
+ /*showInt(b, LCD_LINE2);*/
+  GraphicOut(90-c, t, "carObs.ric");
+
+}
+bool is_interval(int x, int a , int b)
+{
+  if(a < x && x < b)
+    return 1;
+  return 0;
 }
 task main()  {
     int x=0,y=8;
@@ -32,13 +54,27 @@ task main()  {
         y = 8;
       Wait(10);
       ClearScreen();
+      if(i > 30)
+      {
+        if(c == -1)
+            c = 0;
+        else
+            c++;
+        showObs();
+      }
+
+
       GraphicOut(x, y, "carMain.ric");
+
       showStreet(i);
-      /*if(i == 100)
-        i = 0;*/
-      //showInt(i, LCD_LINE1);
-
-
-
+      if(is_interval(x, 90-c-36 ,90-c )&& y==t )
+       break;
+       if(i == 140)
+        {
+          i = 0;
+          c = -1;
+          b = -1;
+        }
+      showInt(i, LCD_LINE1);
     }
   }
