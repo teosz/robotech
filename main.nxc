@@ -1,7 +1,27 @@
-task main()  {
-    	while(1)
-	{
-		TextOut(5, LCD_LINE2 ,"Error");
-	}
-}
+#include "lib/define_sensor.h"
+#include "lib/debug.h"
 
+#define FILE_LINES 10
+
+task main()  {
+ string write;
+ int valCurrent, valLast;
+ byte fileHandle;
+  short bytesWritten;
+  SetSensorLowspeed(IN_4);
+ CreateFile("sensor.data",30000, fileHandle);
+  while(1)
+	{
+   valCurrent = SensorUS(IN_4);
+   if(valCurrent != valLast)
+   {
+     write = NumToStr(valCurrent);
+
+     showInt(valCurrent, LCD_LINE2);
+     WriteLnString(fileHandle, write,bytesWritten);
+   }
+   valLast = valCurrent;
+  }
+   CloseFile(fileHandle);
+
+}
