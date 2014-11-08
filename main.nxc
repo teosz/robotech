@@ -1,38 +1,9 @@
 #include "lib/define_sensor.h"
 #include "lib/debug.h"
 
-#define FILE_LINES 10
 
 task main()  {
- string write;
- int valCurrent, valLast;
- byte fileHandle;
- short bytesWritten;
- int i = 0;
- SetSensorLowspeed(IN_4);
- DeleteFile("sensor.data");
- CreateFile("sensor.data",50000, fileHandle);
-
-  while(1)
-	{
-   valCurrent = SensorUS(IN_4);
-  // if(valCurrent != valLast)
-  // {
-     if(i < 50000 )
-     {
-       write = NumToStr(valCurrent);
-
-       showInt(valCurrent, LCD_LINE2);
-       WriteLnString(fileHandle, write,bytesWritten);
-       i++;
-       }
-     else
-     {
-       PlayToneEx(262,400,3,FALSE);
-     }
-  // }
-   //valLast = valCurrent;
-  }
-   CloseFile(fileHandle);
+    while(1)
+        TextOut(0,LCD_LINE3, "git checkout, noob")
 
 }
