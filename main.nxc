@@ -23,7 +23,6 @@ void showObs()
   {
    b = Random() % 2;
    for(int q=1;q<=100;q++)
-    TextOut(0, LCD_LINE1,"am resetat  !!! !!!");
    }
   if(b == 1)
     t = 8;
@@ -38,7 +37,8 @@ bool is_interval(int x, int a , int b)
   return 0;
 }
 task main()  {
-    int x=0,y=8;
+    int x=0,y=8, score  = 0 ;
+    string scoreChar,msg;
     PlayFileEx("! Attention.rso",2,FALSE);
     GraphicOut(0, 0, "intro.ric");
     Wait(1000);
@@ -75,6 +75,17 @@ task main()  {
           c = -1;
           b = -1;
         }
-      showInt(i, LCD_LINE1);
+        score++;
+
     }
+    ClearScreen();
+    scoreChar =   NumtoStr(score);
+    msg = StrCat("Score :", scoreChar);
+
+    GraphicOut(0, 0, "gameover.ric");
+    TextOut(5, LCD_LINE8, msg);
+
+    while(1)
+    
+
   }
