@@ -5,20 +5,6 @@
 int c = -1;
 int b = -1;
 int t = 33;
-long  __seed = 79502;
-
-void srand(long seed)
-{
-    __seed = seed;
-}
-
-long rand(void)
-{
-    __seed = __seed * 1103515245 + 12345;
-    return (__seed/65536) % 32768;
-}
-
-
 void showStreet(int i)
 {
   for(int k=1;k<=12;k++)
@@ -53,7 +39,8 @@ bool is_interval(int x, int a , int b)
 task main()  {
     int x=0,y=8, score  = 0 ;
     string scoreChar,msg;
-    srand(CurrentTick());
+    //srand(0);
+
     PlayFileEx("! Attention.rso",2,FALSE);
     GraphicOut(0, 0, "intro.ric");
     Wait(1000);
@@ -89,19 +76,19 @@ task main()  {
           i = 0;
           c = -1;
           b = -1;
-     showInt(LCD_LINE1,b); 
+     showInt(LCD_LINE1,b);
         }
         score++;
 
     }
     ClearScreen();
-    scoreChar =   NumtoStr(score);
+    scoreChar =   NumToStr(score);
     msg = StrCat("Score :", scoreChar);
 
     GraphicOut(0, 0, "gameover.ric");
     TextOut(5, LCD_LINE8, msg);
 
     while(1)
-    
+
 
   }
