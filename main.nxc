@@ -2,37 +2,43 @@
 #include "lib/debug.h"
 
 #define FILE_LINES 10
+void showStreet(int i)
+{
+  for(int k=1;k<=12;k++)
+    for(int p=1;p<=3;p++)
+    {
+    int  j  = (p-1) * 25 + 5;
+    int  k  = (k-1) * 25 + 4;
+    RectOut(k,j,25,1);
 
-task main()  {
- string write;
- int valCurrent, valLast;
- byte fileHandle;
- short bytesWritten;
- int i = 0;
- SetSensorLowspeed(IN_4);
- DeleteFile("sensor.data");
- CreateFile("sensor.data",50000, fileHandle);
-
-  while(1)
-	{
-   valCurrent = SensorUS(IN_4);
-  // if(valCurrent != valLast)
-  // {
-     if(i < 50000 )
-     {
-       write = NumToStr(valCurrent);
-
-       showInt(valCurrent, LCD_LINE2);
-       WriteLnString(fileHandle, write,bytesWritten);
-       i++;
-       }
-     else
-     {
-       PlayToneEx(262,400,3,FALSE);
-     }
-  // }
-   //valLast = valCurrent;
-  }
-   CloseFile(fileHandle);
+    }
+    CircleOut(10, 33, 5, DRAW_OPT_FILL_SHAPE);
 
 }
+task main()  {
+    int x=0,y=8;
+    PlayFileEx("! Attention.rso",2,FALSE);
+    GraphicOut(0, 0, "intro.ric");
+    Wait(1000);
+    ClearScreen();
+    SetSensorTouch(IN_1);
+    SetSensorTouch(IN_2);
+    for(int i=0;1;i++) {
+      if (SENSOR_1 == 1)
+
+        y =33;
+
+      if (SENSOR_2 == 1)
+        y = 8;
+      Wait(10);
+      ClearScreen();
+      GraphicOut(x, y, "carMain.ric");
+      showStreet(i);
+      /*if(i == 100)
+        i = 0;*/
+      //showInt(i, LCD_LINE1);
+
+
+
+    }
+  }
