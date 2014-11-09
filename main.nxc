@@ -4,6 +4,6 @@
 
 task main()  {
     while(1)
-        TextOut(0,LCD_LINE3, "git checkout, noob")
+        TextOut(0,LCD_LINE3, "git checkout, noob");
 
 }
