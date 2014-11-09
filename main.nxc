@@ -1,7 +1,52 @@
 #include "lib/define_sensor.h"
 #include "lib/debug.h"
 #include "lib/gaussinan.nxc"
+int N=1000;
+int a[N+1];
 
-
+float getMid()
+{
+  int sum = 0;
+  for(int i=1;i<=N;i++)
+    sum += a[i];
+  return sum/N
+}
 task main()  {
+  float mid;
+  int i=0;
+  for(int i=0;i<=N;i++)
+  {
+    a[i]  = -1;
+  }
+
+  while(1)
+  {
+    /*SetSensorLowspeed(IN_4);
+    getData(i)*/
+    if(i > N)
+      for(int i=N;i>0;i--)
+      {
+        a[i] = a[i-1];
+
+      }
+      i--;
+    }
+    int valCurrent = SensorUS(IN_4);
+    if(a[i-1] != valCurrent)
+      a[++i] = valCurrent;
+
+    }
+    if(i < N)
+    {
+      gaussianiir1d(a, N, 2,N);
+      mid = getMid();
+
+
+    }
+    if(valCurrent > mid)
+    {
+      RotateMotorPID(OUT_A, 75, 2, 20, 40, 100);
+    }
+  }
+
 }
