@@ -10,16 +10,16 @@
 #define MSG_BUSY   "Working..."
 #define MSG_FIN   "Finished! Place robot at START!"
 
-#define SAMPLES 100 // num of  learning samples
-#define RUN_TIME 5000
-#define WAIT_TIME 4000  
+#define SAMPLES 3 // num of  learning samples
+#define RUN_TIME 10000
+#define WAIT_TIME 4000
 
 // konfiguration 20 1 25 is nice
 //P= 0.6KC==30  I = 2P(30) *dT(0.02) / Pc(0.5)      P(30)Pc(0.5) / (8dT-)
 #define LOOP_TIME 5  // [mSeconds]How long do we wait in the loop
 #define LOOP_GUESS 15 // mSec ..how long run loop without waiting
-#define SPEED 20
-#define dT ((LOOP_TIME + LOOP_GUESS) / 1000.0)  // dT [sec] 
+#define SPEED 45
+#define dT ((LOOP_TIME + LOOP_GUESS) / 1000.0)  // dT [sec]
 #define KC 50  // Critical value
 #define PC 0.5 // Oscilation Period
 #define P_GUESS 0
@@ -37,10 +37,10 @@ int envColor;
 
 sub defineColors() {
   unsigned int i;
-  int x; 
+  int x;
 
   // neutral init
-  lineColor = 0;  
+  lineColor = 0;
   envColor = 0;
 
   // starting learning COLOR1 for the line
@@ -58,10 +58,10 @@ sub defineColors() {
     Wait(20); // Wait a little bit
   }
 
-  // starting learning COLOR1 for the environment 
+  // starting learning COLOR1 for the environment
   // ClearScreen();
   TextOut(0, LCD_LINE1, MSG_COLOR2);
-  Wait(WAIT_TIME); 
+  Wait(WAIT_TIME);
   // ClearScreen();
   TextOut(0, LCD_LINE2, MSG_BUSY);
 
@@ -78,7 +78,7 @@ sub defineColors() {
   // let the user place robot at start
   ClearScreen();
   TextOut(0, LCD_LINE2, MSG_FIN);
-  Wait(WAIT_TIME); 
+  Wait(WAIT_TIME);
 }
 
 sub pid(int runTime) {
@@ -94,12 +94,12 @@ sub pid(int runTime) {
   int randInt = SCALE_RAND * abs(lineColor - envColor);
 
   int t = CurrentTick() + runTime;
-  int ct = CurrentTick(); 
-  while ( ct < t ) {
+  int ct = CurrentTick();
+  while ( 1 ) { // Fix de ala naspagiu
     Wait(LOOP_TIME); // Wait a little bit
-    x = SensorRaw(LIGHT_SEN); 
+    x = SensorRaw(LIGHT_SEN);
     // x = x + Random(randInt); // random forces a little bit search
-    err =  x - offset;  
+    err =  x - offset;
     errI = errI + err;
     errD = err - lastErr;
 
@@ -108,13 +108,13 @@ sub pid(int runTime) {
 
     left = SPEED + turn;
     right = SPEED - turn;
-    
+
 
     OnFwd(OUT_L, left);
     OnFwd(OUT_R, right);
 
     lastErr = err;
-    ct = CurrentTick(); 
+    ct = CurrentTick();
 
     // NumOut(0, LCD_LINE4, ct);
     // NumOut(0, LCD_LINE1, left);
@@ -122,18 +122,18 @@ sub pid(int runTime) {
     // NumOut(0, LCD_LINE1, turn);
     // NumOut(0, LCD_LINE4, x);
     // NumOut(0, LCD_LINE5, D * errD);
-  } 
+  }
 }
 
 task main(){
-  // init sensor light 
+  // init sensor light
   SetSensorType(LIGHT_SEN, IN_TYPE_LIGHT_ACTIVE);
   SetSensorMode(LIGHT_SEN, IN_MODE_RAW);
 
 
   lineColor = 414;
   envColor = 749; //713
-  //defineColors();
+//  defineColors();
 
    pid(RUN_TIME);
 
@@ -151,8 +151,7 @@ task main(){
 //  f = dT; NumOut(0, LCD_LINE4, f);
 
   // wait for user to read the values
-  Wait(WAIT_TIME); 
+  Wait(WAIT_TIME);
   string msg="Caio";
   TextOut(0, LCD_LINE1, msg);
-} 
-
+}
