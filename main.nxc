@@ -7,12 +7,12 @@ int b = -1;
 int t = 33;
 void showStreet(int i)
 {
-  for(int k=1;k<=12;k++)
+  for(int k=1;k<=20;k++)
     for(int p=1;p<=3;p++)
     {
     int  j  = (p-1) * 25 + 5;
-    int  k  = (k-1) * 25 + 4;
-    RectOut(k,j,25,1);
+    int  q  = (k-1) * 25 + 4;
+    RectOut(q-5*i,j,20,1);
     }
 
 }
@@ -26,7 +26,6 @@ void showObs()
     t = 8;
   else
     t = 33;
-  showInt(b, LCD_LINE2);
   GraphicOut(90-c, t, "carObs.ric");
 
 }
@@ -56,27 +55,25 @@ task main()  {
         y = 8;
       Wait(10);
       ClearScreen();
-      if(i > 30)
+      if(i > 10)
       {
         if(c == -1)
             c = 0;
         else
-            c++;
+            c+=4;
         showObs();
       }
 
 
       GraphicOut(x, y, "carMain.ric");
-
       showStreet(i);
       if(is_interval(x, 90-c-36 ,90-c )&& y==t )
        break;
-       if(i == 140)
+       if(i == 40)
         {
           i = 0;
           c = -1;
           b = -1;
-     showInt(LCD_LINE1,b);
         }
         score++;
 
