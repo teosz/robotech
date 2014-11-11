@@ -1,5 +1,5 @@
 mkdir -p .obj
-.nxc/nbc -v=131 -EF  main.nxc -O=.obj/main.rxe
+.nxc/nbc -v=131 $1  main.nxc -O=.obj/main.rxe
 sudo .t2n/obj/t2n  -put .obj/main.rxe 
 
 
