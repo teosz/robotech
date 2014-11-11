@@ -47,8 +47,8 @@ task main()  {
   {
 
 
-    if(i==100)
-     break;
+    if(i==30)
+      i=0;
     valCurrent = SensorUS(IN_2);
     write = NumToStr(valCurrent);
     WriteLnString(fileHandle, write,bt);
