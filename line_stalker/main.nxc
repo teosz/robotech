@@ -1,0 +1,157 @@
+#include "lib/define_sensor.h"
+#include "lib/debug.h"
+#define OUT_L OUT_B // left motor
+#define OUT_R OUT_C // right motor
+#define OUT_BOTH OUT_BC // both motors
+#define LIGHT_SEN IN_3 // light sensor
+
+#define MSG_COLOR1 "Put2line"
+#define MSG_COLOR2 "Put FROM line"
+#define MSG_BUSY   "Working..."
+#define MSG_FIN   "Finished! Place robot at START!"
+
+#define SAMPLES 3 // num of  learning samples
+#define RUN_TIME 10000
+#define WAIT_TIME 4000
+
+// konfiguration 20 1 25 is nice
+//P= 0.6KC==30  I = 2P(30) *dT(0.02) / Pc(0.5)      P(30)Pc(0.5) / (8dT-)
+#define LOOP_TIME 5  // [mSeconds]How long do we wait in the loop
+#define LOOP_GUESS 15 // mSec ..how long run loop without waiting
+#define SPEED 45
+#define dT ((LOOP_TIME + LOOP_GUESS) / 1000.0)  // dT [sec]
+#define KC 50  // Critical value
+#define PC 0.5 // Oscilation Period
+#define P_GUESS 0
+#define I_GUESS -2.35
+#define D_GUESS -40.0
+#define P ((0.6*KC) + P_GUESS )
+#define I ((2*(P*(dT/PC))) + I_GUESS)
+#define D (((0.125*(P*PC))/dT) + D_GUESS)
+#define SCALE 0.01        // because we messuare LIGHT between 0 .. 1000 and deviding by Motor speed range 100
+#define SCALE_RAND 0.3
+
+
+int lineColor;
+int envColor;
+
+sub defineColors() {
+  unsigned int i;
+  int x;
+
+  // neutral init
+  lineColor = 0;
+  envColor = 0;
+
+  // starting learning COLOR1 for the line
+  ClearScreen();
+  TextOut(0, LCD_LINE1, MSG_COLOR1);
+  TextOut(0, LCD_LINE2, MSG_BUSY);
+
+  for ( i = 1; i < SAMPLES; ++i ) {
+    x = SensorRaw(LIGHT_SEN);
+    NumOut(0, LCD_LINE1, x);
+    // careful: it must hold i * lineColorMax < MAX unsigned int
+    lineColor =  (  ( (i-1)  * lineColor)  +  x  ) / i;
+    NumOut(0, LCD_LINE2, lineColor);
+
+    Wait(20); // Wait a little bit
+  }
+
+  // starting learning COLOR1 for the environment
+  // ClearScreen();
+  TextOut(0, LCD_LINE1, MSG_COLOR2);
+  Wait(WAIT_TIME);
+  // ClearScreen();
+  TextOut(0, LCD_LINE2, MSG_BUSY);
+
+  for ( i = 1; i < SAMPLES; ++i ) {
+    x = SensorRaw(LIGHT_SEN);
+    // careful: it must hold i * envColorMax < MAX unsigned int
+    envColor =  (  ( (i-1)  * envColor)  +  x  ) / i;
+    //  NumOut(0, LCD_LINE2, envColor);
+    // NumOut(0, LCD_LINE1, x);
+
+    Wait(20); // Wait a little bit
+  }
+
+  // let the user place robot at start
+  ClearScreen();
+  TextOut(0, LCD_LINE2, MSG_FIN);
+  Wait(WAIT_TIME);
+}
+
+sub pid(int runTime) {
+  int offset = (lineColor + envColor)/2;
+  int err = 0;
+  int lastErr = 0;
+  int errD = 0; // error Derivative
+  int errI = 0; // error Integral
+  int left = 0;
+  int right = 0;
+  float turn = 0;
+  int x = 0;
+  int randInt = SCALE_RAND * abs(lineColor - envColor);
+
+  int t = CurrentTick() + runTime;
+  int ct = CurrentTick();
+  while ( 1 ) { // Fix de ala naspagiu
+    Wait(LOOP_TIME); // Wait a little bit
+    x = SensorRaw(LIGHT_SEN);
+    // x = x + Random(randInt); // random forces a little bit search
+    err =  x - offset;
+    errI = errI + err;
+    errD = err - lastErr;
+
+    // good bracketing for ERR_SCALE >> ACT_SCALE
+    turn = SCALE *((P * err ) + (I * errI) + (D * errD)) ; // scale is macro => CONSTANT
+
+    left = SPEED + turn;
+    right = SPEED - turn;
+
+
+    OnFwd(OUT_L, left);
+    OnFwd(OUT_R, right);
+
+    lastErr = err;
+    ct = CurrentTick();
+
+    // NumOut(0, LCD_LINE4, ct);
+    // NumOut(0, LCD_LINE1, left);
+    // NumOut(0, LCD_LINE2, right);
+    // NumOut(0, LCD_LINE1, turn);
+    // NumOut(0, LCD_LINE4, x);
+    // NumOut(0, LCD_LINE5, D * errD);
+  }
+}
+
+task main(){
+  // init sensor light
+  SetSensorType(LIGHT_SEN, IN_TYPE_LIGHT_ACTIVE);
+  SetSensorMode(LIGHT_SEN, IN_MODE_RAW);
+
+
+  lineColor = 414;
+  envColor = 749; //713
+//  defineColors();
+
+   pid(RUN_TIME);
+
+  // stop brutally
+  int s=0;
+  OnFwd(OUT_BOTH,s);
+  // stop gently does not compile
+  // Coast(OUT_BOTH);
+
+  ClearScreen();
+  float f;
+  f = P; NumOut(0, LCD_LINE1, f);
+  f = I; NumOut(0, LCD_LINE2, f);
+  f = D; NumOut(0, LCD_LINE3, f);
+//  f = dT; NumOut(0, LCD_LINE4, f);
+
+  // wait for user to read the values
+  Wait(WAIT_TIME);
+  string msg="Caio";
+  TextOut(0, LCD_LINE1, msg);
+}

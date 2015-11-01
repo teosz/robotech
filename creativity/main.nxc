@@ -1,0 +1,854 @@
+#include "lib/define_sensor.h"
+#include "lib/debug.h"
+
+#define FILE_LINES 10
+int c = -1;
+int b = -1;
+int t = 33;
+task music()
+{  
+
+  while(1) 
+  {
+ /* Wait(1920);*/
+  /*Wait(1920);*/
+  /*Wait(240);*/
+
+  
+  
+  
+
+  /*//Well, here we are again*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,300);*/
+  /*Wait(360);*/
+  /*PlayTone(587,100);*/
+  /*Wait(120);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+
+  
+  
+  
+
+  /*//It's always such a pleasure*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(415,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+
+  
+  
+  
+  
+  
+
+  /*//Remember when you tried to kill me twice?*/
+  /*Wait(240);*/
+  /*Wait(120);*/
+  /*PlayTone(330,100);*/
+  /*Wait(120);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(587,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,400);*/
+  /*Wait(480);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(415,600);*/
+  /*Wait(720);*/
+  /*Wait(480);*/
+
+  
+  
+  
+  
+  
+
+  /*//Oh, how we laughed and laughed*/
+  /*Wait(240);*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,300);*/
+  /*Wait(360);*/
+  /*PlayTone(587,100);*/
+  /*Wait(120);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+
+  
+  
+  
+
+  /*//Except I wasn't laughing*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(415,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+
+  
+  
+  
+  
+  
+
+  /*//Under the circumstances I've been shockingly nice*/
+  /*Wait(240);*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(587,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,400);*/
+  /*Wait(480);*/
+  /*PlayTone(659,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(466,600);*/
+  /*Wait(720);*/
+  /*Wait(480);*/
+
+  
+  
+  
+  
+
+  /*//You want your freedom take it*/
+  /*//#:a,c,d,f,g*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*PlayTone(932,400);*/
+  /*Wait(480);*/
+  /*PlayTone(831,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,1000);*/
+  /*Wait(1200);*/
+  /*Wait(480);*/
+
+  
+  
+  
+
+  /*//That's what I'm counting on.*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(370,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,400);*/
+  /*Wait(480);*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(370,1200);*/
+  /*Wait(1440);*/
+  /*Wait(960);*/
+
+  
+  
+  
+  
+  
+
+  /*//I used to want you dead but now I only want you gone*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*PlayTone(932,400);*/
+  /*Wait(480);*/
+  /*PlayTone(831,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,200);*/
+  /*Wait(240);*/
+  /*PlayTone(740,200);*/
+  /*Wait(240);*/
+  /*PlayTone(659,200);*/
+  /*Wait(240);*/
+  /*PlayTone(659,400);*/
+  /*Wait(480);*/
+  /*PlayTone(587,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*PlayTone(494,100);*/
+  /*Wait(120);*/
+  /*PlayTone(440,500);*/
+  /*Wait(600);*/
+  /*Wait(960);*/
+  /*Wait(1920);*/
+  /*Wait(240);*/
+
+  
+  
+  
+
+  /*//She was a lot like you*/
+  /*//#: c,f,g*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(587,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*Wait(240);*/
+  /*Wait(120);*/
+
+  
+  
+  
+
+  /*//(Maybe not quite as heavy)*/
+  /*PlayTone(440,100);*/
+  /*Wait(120);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(415,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*Wait(240);*/
+
+  
+  
+  
+  
+
+  /*//Now little Caroline is in here too*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(587,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,400);*/
+  /*Wait(480);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(415,600);*/
+  /*Wait(720);*/
+  /*Wait(480);*/
+  /*Wait(240);*/
+
+  
+  
+  
+
+  /*//One day they woke me up*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,300);*/
+  /*Wait(360);*/
+  /*PlayTone(587,100);*/
+  /*Wait(120);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*Wait(240);*/
+
+  
+  
+  
+
+  /*//So I could live forever*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,300);*/
+  /*Wait(360);*/
+  /*PlayTone(440,100);*/
+  /*Wait(120);*/
+  /*PlayTone(415,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*Wait(240);*/
+
+  
+  
+  
+  
+  
+
+  /*//It's such a shame the same will never happen to you*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(587,100);*/
+  /*Wait(120);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,400);*/
+  /*Wait(480);*/
+  /*PlayTone(622,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(466,600);*/
+  /*Wait(720);*/
+  /*Wait(480);*/
+
+  
+  
+  
+  
+
+  /*//You've got your short sad life left*/
+  /*//#: c,d,f,g,a*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*PlayTone(932,400);*/
+  /*Wait(480);*/
+  /*PlayTone(831,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,1000);*/
+  /*Wait(1200);*/
+  /*Wait(480);*/
+
+  
+  
+  
+
+  /*//That's what I'm counting on*/
+  /*PlayTone(622,200);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(466,200);*/
+  /*PlayTone(370,200);*/
+  /*Wait(240);*/
+  /*PlayTone(622,200);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(466,1400);*/
+  /*PlayTone(370,1400);*/
+  /*Wait(1680);*/
+  /*Wait(960);*/
+
+  
+  
+  
+
+  /*//I'll let you get right to it*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*PlayTone(932,400);*/
+  /*Wait(480);*/
+  /*PlayTone(831,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,400);*/
+  /*Wait(480);*/
+
+  
+  
+  
+
+  /*//Now I only want you gone*/
+  /*PlayTone(740,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,200);*/
+  /*Wait(240);*/
+  /*PlayTone(740,200);*/
+  /*Wait(240);*/
+  /*PlayTone(659,200);*/
+  /*Wait(240);*/
+  /*PlayTone(659,400);*/
+  /*Wait(480);*/
+  /*PlayTone(587,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*PlayTone(494,100);*/
+  /*Wait(120);*/
+  /*PlayTone(440,500);*/
+  /*Wait(600);*/
+  /*Wait(960);*/
+  /*Wait(1920);*/
+  /*Wait(240);*/
+
+  
+  
+  
+
+  /*//Goodbye my only friend*/
+  /*//#: c,f,g*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(587,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+
+  
+  
+  
+  
+
+  /*//Oh, did you think I meant you?*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(415,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*Wait(240);*/
+
+  
+  
+  
+  
+
+  /*//That would be funny if it weren't so sad*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(587,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,400);*/
+  /*Wait(480);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(415,600);*/
+  /*Wait(720);*/
+  /*Wait(480);*/
+  /*Wait(240);*/
+
+  
+  
+  
+
+  /*//Well you have been replaced*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,300);*/
+  /*Wait(360);*/
+  /*PlayTone(587,100);*/
+  /*Wait(120);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*Wait(240);*/
+
+  
+  
+  
+
+  /*//I don't need anyone now*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,300);*/
+  /*Wait(360);*/
+  /*PlayTone(440,100);*/
+  /*Wait(120);*/
+  /*PlayTone(415,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*Wait(240);*/
+
+  
+  
+  
+  
+  
+
+  /*//When I delete you maybe I'll stop feeling so bad*/
+  /*PlayTone(330,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(587,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(440,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,400);*/
+  /*Wait(480);*/
+  /*PlayTone(622,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(466,600);*/
+  /*Wait(720);*/
+  /*Wait(480);*/
+
+  
+  
+  
+
+  /*//Go make some new disaster*/
+  /*//#: c,d,f,g,a*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*PlayTone(932,400);*/
+  /*Wait(480);*/
+  /*PlayTone(831,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,1000);*/
+  /*Wait(1200);*/
+  /*Wait(480);*/
+
+  
+  
+  
+
+  /*//That's what I'm counting on*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(370,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(370,1400);*/
+  /*Wait(1680);*/
+  /*Wait(960);*/
+
+  
+  
+  
+
+  /*//You're someone else's problem*/
+  /*PlayTone(466,200);*/
+  /*Wait(240);*/
+  /*PlayTone(494,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,200);*/
+  /*Wait(240);*/
+  /*PlayTone(554,400);*/
+  /*Wait(480);*/
+  /*PlayTone(932,400);*/
+  /*Wait(480);*/
+  /*PlayTone(831,400);*/
+  /*Wait(480);*/
+  /*PlayTone(740,400);*/
+  /*Wait(480);*/
+
+  
+  
+  
+
+  //Now I only want you gone
+  //#: c,f,g
+  PlayTone(740,400);
+  Wait(480);
+  PlayTone(740,200);
+  Wait(240);
+  PlayTone(740,200);
+  Wait(240);
+  PlayTone(659,200);
+  Wait(240);
+  PlayTone(659,400);
+  Wait(480);
+  PlayTone(587,200);
+  Wait(240);
+  PlayTone(554,400);
+  Wait(480);
+  PlayTone(494,100);
+  Wait(120);
+  PlayTone(440,500);
+  Wait(600);
+  Wait(480);
+  Wait(240);
+
+  //Now I only want you gone
+  PlayTone(740,400);
+  Wait(480);
+  PlayTone(740,200);
+  Wait(240);
+  PlayTone(740,200);
+  Wait(240);
+  PlayTone(659,200);
+  Wait(240);
+  PlayTone(659,400);
+  Wait(480);
+  PlayTone(587,200);
+  Wait(240);
+  PlayTone(554,400);
+  Wait(480);
+  PlayTone(494,100);
+  Wait(120);
+  PlayTone(440,500);
+  Wait(600);
+  Wait(480);
+  Wait(240);
+
+  //Now I only want you gone
+  PlayTone(740,400);
+  Wait(480);
+  PlayTone(740,200);
+  Wait(240);
+  PlayTone(740,200);
+  Wait(240);
+  PlayTone(659,200);
+  Wait(240);
+  PlayTone(659,400);
+  Wait(480);
+  PlayTone(587,200);
+  Wait(240);
+  PlayTone(554,1000);
+  Wait(1200);
+  Wait(960);
+  } 
+
+}
+void showStreet(int i)
+{
+  for(int k=1;k<=20;k++)
+    for(int p=1;p<=3;p++)
+    {
+    int  j  = (p-1) * 25 + 5;
+    int  q  = (k-1) * 25 + 4;
+    RectOut(q-5*i,j,20,1);
+    }
+
+}
+void showObs()
+{
+  if(b == -1)
+  {
+    b = rand() % 2;
+   }
+  if(b == 1)
+    t = 8;
+  else
+    t = 33;
+  GraphicOut(90-c, t, "carObs.ric");
+
+}
+bool is_interval(int x, int a , int b)
+{
+  if(a < x && x < b)
+    return 1;
+  return 0;
+}
+task game()  {
+    int x=0,y=8, score  = 0 ;
+    string scoreChar,msg;
+    //srand(0);
+
+    PlayFileEx("! Attention.rso",2,FALSE);
+    GraphicOut(0, 0, "intro.ric");
+    Wait(1000);
+    ClearScreen();
+    SetSensorTouch(IN_1);
+    SetSensorTouch(IN_2);
+    for(int i=0;1;i++) {
+      if (SENSOR_1 == 1)
+
+        y =33;
+
+      if (SENSOR_2 == 1)
+        y = 8;
+      Wait(10);
+      ClearScreen();
+      if(i > 10)
+      {
+        if(c == -1)
+            c = 0;
+        else
+            c+=4;
+        showObs();
+      }
+
+
+      GraphicOut(x, y, "carMain.ric");
+      showStreet(i);
+      if(is_interval(x, 90-c-36 ,90-c )&& y==t )
+       break;
+       if(i == 40)
+        {
+          i = 0;
+          c = -1;
+          b = -1;
+        }
+        score++;
+
+    }
+    ClearScreen();
+    scoreChar =   NumToStr(score);
+    msg = StrCat("Score :", scoreChar);
+
+    GraphicOut(0, 0, "gameover.ric");
+    TextOut(5, LCD_LINE8, msg);
+
+    while(1)
+
+
+  }
+
+task main(){
+  Precedes(music, game);
+
+}
