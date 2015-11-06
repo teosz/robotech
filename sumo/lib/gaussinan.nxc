@@ -1,4 +1,3 @@
-
 void gaussianiir1d(int &data[], long length, float sigma, int numsteps)
 {
     float lambda, dnu;

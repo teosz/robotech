@@ -1,9 +1,0 @@
-#include "lib/define_sensor.h"
-#include "lib/debug.h"
-
-
-task main()  {
-    while(1)
-        TextOut(0,LCD_LINE3, "git checkout, noob")
-
-}
