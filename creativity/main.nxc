@@ -5,6 +5,7 @@
 void lasa_pix(){
   OnFwd(OUT_A, POWER);
   until (SENSOR_1 == 0);
+  Wait(10);
   ClearSensor(IN_1);
   Off(OUT_A);
 
@@ -12,7 +13,9 @@ void lasa_pix(){
 void ridica_pix(){
   OnFwd(OUT_A, -POWER);
   until (SENSOR_1 == 1);
+  Wait(10);
   ClearSensor(IN_1);
+
   Off(OUT_A);
 
 }
@@ -45,14 +48,34 @@ void scrie_O() {
   ridica_pix();
   misca_cartus(3);
 }
+void scrie_B() {
+  lasa_pix();
+  trage_foaie(4);
+  misca_cartus(2);
+  trage_foaie(-2);
+  misca_cartus(-2);
+  ridica_pix();
+  trage_foaie(-2);
+  lasa_pix();
+  misca_cartus(1);
+  trage_foaie(2);
+  ridica_pix();
+  trage_foaie(-2);
+  misca_cartus(2);
+}
 task stanga() {
   misca_cartus(2);
+  ridica_pix();
+  trage_foaie(-4);
+  misca_cartus(1);
+  scrie_O();
+  scrie_B();
+  scrie_O();
+  scrie_T();
 }
 task dreapta() {
   trage_foaie(2);
-  ridica_pix();
-  trage_foaie(-4);
-  misca_cartus(2);
+
 
 }
 
@@ -65,8 +88,8 @@ void scrie_R(){
   misca_cartus(2);
   trage_foaie(2);
   misca_cartus(-2);
-  start stanga;
   start dreapta;
+  start stanga;
 
 
 
@@ -77,7 +100,5 @@ task main()
   //Wait(1000);
   //lasa_pix();
   scrie_R();
-  scrie_O();
-  scrie_O();
-  scrie_T();
+
 }
